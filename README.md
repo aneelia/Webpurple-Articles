@@ -1,3 +1,3 @@
-# JS-Tutorials
+# JS-Practice
 
 HI
