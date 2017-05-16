@@ -44,3 +44,16 @@ forEach(['a', 'b'], (elem, i) => console.log(`${i}. ${elem}`));
 // 0. a
 // 1. b
 ```
+
+#### findIndex()
+```
+function findIndex(arr, predicate, start = 0) {
+    if (0 <= start && start < arr.length) {
+        if (predicate(arr[start])) {
+            return start;
+        }
+        return findIndex(arr, predicate, start+1); // tail call
+    }
+}
+findIndex(['a', 'b'], x => x === 'b'); // 1
+```
