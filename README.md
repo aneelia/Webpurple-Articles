@@ -1,3 +1,3 @@
-# WebPurple Articel
+# WebPurple Articles
 
 collaborative translations
