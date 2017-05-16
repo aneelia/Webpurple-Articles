@@ -57,3 +57,12 @@ const a = () => {
 };
 ```
 The result of the logical And operator depends on the result of f(), which is why that function call is not in a tail position (the caller does something with it other than returning it). However, g() is in a tail position.
+#### The comma operator (,)  
+```const a = () => (f() , g());```
+f() is not in a tail position, but g() is in a tail position. To see why, take a look at the following code, which is equivalent to the previous code:
+```
+const a = () => {
+    f();
+    return g();
+}
+```
