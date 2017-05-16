@@ -39,3 +39,7 @@ The stack now looks as follows:
 ///pic4///
 
 **Step 5.** In line B, the value that was returned by id is returned to f’s caller. Again, the topmost stack frame is removed and execution jumps to the return address, line C.
+
+///pic5///
+
+**Step 6.** Line C receives the value 3 and logs it.
