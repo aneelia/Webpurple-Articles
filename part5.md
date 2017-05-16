@@ -27,6 +27,20 @@ function facRec(x, acc) {
 ```
 That is, some non-tail-recursive functions can be transformed into tail-recursive functions.
 
-###3.1 Tail-recursive loops
+### 3.1 Tail-recursive loops
 
 Tail call optimization makes it possible to implement loops via recursion without growing the stack. The following are two examples.
+#### forEach()
+```
+function forEach(arr, callback, start = 0) {
+    if (0 <= start && start < arr.length) {
+        callback(arr[start], start, arr);
+        return forEach(arr, callback, start+1); // tail call
+    }
+}
+forEach(['a', 'b'], (elem, i) => console.log(`${i}. ${elem}`));
+
+// Output:
+// 0. a
+// 1. b
+```
