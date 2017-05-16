@@ -18,8 +18,24 @@ Let’s assume there is a JavaScript engine that manages function calls by stori
 
 **Step 1.** Initially, there are only the global variables id and f on the stack.
 
-///pic///
+///pic1///
 
 The block of stack entries encodes the state (local variables, including parameters) of the current scope and is called a stack frame.
 
 **Step 2.** In line C, f() is called: First, the location to return to is saved on the stack. Then f’s parameters are allocated and execution jumps to its body. The stack now looks as follows.
+
+///pic2///
+
+There are now two frames on the stack: One for the global scope (bottom) and one for f() (top). f’s stack frame includes the return address, line C.
+
+**Step 3.** id() is called in line B. Again, a stack frame is created that contains the return address and id’s parameter.
+
+///pic3///
+
+**Step 4.** In line A, the result x is returned. id’s stack frame is removed and execution jumps to the return address, line B. (There are several ways in which returning a value could be handled. Two common solutions are to leave the result on a stack or to hand it over in a register. I ignore this part of execution here.)
+
+The stack now looks as follows:
+
+///pic4///
+
+**Step 5.** In line B, the value that was returned by id is returned to f’s caller. Again, the topmost stack frame is removed and execution jumps to the return address, line C.
