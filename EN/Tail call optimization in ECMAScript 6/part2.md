@@ -15,11 +15,11 @@ If you look at the previous section then there is one step that is unnecessary �
 
 We can make this happen by implementing the function call in line B differently. Before the call happens, the stack looks as follows.
 
-///pic6///
+![pic6](http://2ality.com/2015/06/tail-call-optimization/stack_frames_2.jpg)
 
 If we examine the call we see that it is the very last action in f(). Once id() is done, the only remaining action performed by f() is to pass id’s result to f’s caller. Therefore, f’s variables are not needed, anymore and its stack frame can be removed before making the call. The return address given to id() is f’s return address, line C. During the execution of id(), the stack looks like this:
 
-///pic7///
+![pic7](http://2ality.com/2015/06/tail-call-optimization/stack_frames_2_tco.jpg)
 
 Then id() returns the value 3. You could say that it returns that value for f(), because it transports it to f’s caller, line C.
 
