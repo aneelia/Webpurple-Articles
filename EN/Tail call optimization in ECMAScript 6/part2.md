@@ -23,4 +23,4 @@ If we examine the call we see that it is the very last action in f(). Once id() 
 
 Then id() returns the value 3. You could say that it returns that value for f(), because it transports it to f’s caller, line C.
 
-Let’s review: The function call in line B is a *tail call*. Such a call can be done with zero stack growth. To find out whether a function call is a tail call, we must check whether it is in a tail position (i.e., the last action in a function). How that is done is explained in the next section.
+Let’s review: The function call in line B is a *tail call*. Such a call can be done with zero stack growth. To find out whether a function call is a tail call, we must check whether it is in a *tail position* (i.e., the last action in a function). How that is done is explained in the next section.
