@@ -21,13 +21,13 @@ Let’s assume there is a JavaScript engine that manages function calls by stori
 
 **Step 1.** Initially, there are only the global variables id and f on the stack.
 
-///pic1///
+![pic1](http://2ality.com/2015/06/tail-call-optimization/stack_frames_1.jpg)
 
 The block of stack entries encodes the state (local variables, including parameters) of the current scope and is called a stack frame.
 
 **Step 2.** In line C, f() is called: First, the location to return to is saved on the stack. Then f’s parameters are allocated and execution jumps to its body. The stack now looks as follows.
 
-///pic2///
+![pic2](http://2ality.com/2015/06/tail-call-optimization/stack_frames_2.jpg)
 
 There are now two frames on the stack: One for the global scope (bottom) and one for f() (top). f’s stack frame includes the return address, line C.
 
