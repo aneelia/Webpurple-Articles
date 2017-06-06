@@ -33,16 +33,16 @@ There are now two frames on the stack: One for the global scope (bottom) and one
 
 **Step 3.** id() is called in line B. Again, a stack frame is created that contains the return address and id’s parameter.
 
-///pic3///
+![pic3](http://2ality.com/2015/06/tail-call-optimization/stack_frames_3.jpg)
 
 **Step 4.** In line A, the result x is returned. id’s stack frame is removed and execution jumps to the return address, line B. (There are several ways in which returning a value could be handled. Two common solutions are to leave the result on a stack or to hand it over in a register. I ignore this part of execution here.)
 
 The stack now looks as follows:
 
-///pic4///
+![pic4](http://2ality.com/2015/06/tail-call-optimization/stack_frames_2.jpg)
 
 **Step 5.** In line B, the value that was returned by id is returned to f’s caller. Again, the topmost stack frame is removed and execution jumps to the return address, line C.
 
-///pic5///
+![pic5](http://2ality.com/2015/06/tail-call-optimization/stack_frames_1.jpg)
 
 **Step 6.** Line C receives the value 3 and logs it.
