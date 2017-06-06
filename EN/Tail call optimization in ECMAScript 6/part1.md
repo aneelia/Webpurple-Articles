@@ -1,6 +1,7 @@
 ECMAScript 6 offers *tail call optimization*, where you can make some function calls without growing the call stack. This blog post explains how that works and what benefits it brings.
 
 ## 1. What is tail call optimization?
+
 To understand what tail call optimization (TCO) is, we will examine the following piece of code. I’ll first explain how it is executed without TCO and then with TCO.
 
 ```js
@@ -13,7 +14,9 @@ function f(a) {
 }
 console.log(f(2)); // (C)
 ```
+
 ## 1. Normal execution
+
 Let’s assume there is a JavaScript engine that manages function calls by storing local variables and return addresses on a stack. How would such an engine execute the code?
 
 **Step 1.** Initially, there are only the global variables id and f on the stack.

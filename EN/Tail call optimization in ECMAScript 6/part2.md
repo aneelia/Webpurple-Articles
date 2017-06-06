@@ -10,6 +10,7 @@ function f(a) {
 }
 console.log(f(2)); // (C)
 ```
+
 If you look at the previous section then there is one step that is unnecessary – step 5. All that happens in line B is that the value returned by id() is passed on to line C. Ideally, id() could do that itself and the intermediate step could be skipped.
 
 We can make this happen by implementing the function call in line B differently. Before the call happens, the stack looks as follows.

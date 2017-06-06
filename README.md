@@ -1,3 +1,8 @@
 # WebPurple Articles
 
-collaborative translations
+Совместный перевод статей для сайта WebPurple
+
+Collaborative article translation for Webpurple
+
+
+

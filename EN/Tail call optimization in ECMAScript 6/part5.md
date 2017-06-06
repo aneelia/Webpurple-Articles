@@ -3,7 +3,8 @@
 A function is *tail-recursive* if the main recursive calls it makes are in tail positions.
 
 For example, the following function is not tail recursive, because the main recursive call in line A is not in a tail position:
-```
+
+```js
 function factorial(x) {
     if (x <= 0) {
         return 1;
@@ -12,8 +13,10 @@ function factorial(x) {
     }
 }
 ```
+
 factorial() can be implemented via a tail-recursive helper function facRec(). The main recursive call in line A is in a tail position.
-```
+
+```js
 function factorial(n) {
     return facRec(n, 1);
 }
@@ -25,13 +28,16 @@ function facRec(x, acc) {
     }
 }
 ```
+
 That is, some non-tail-recursive functions can be transformed into tail-recursive functions.
 
 ### 3.1 Tail-recursive loops
 
 Tail call optimization makes it possible to implement loops via recursion without growing the stack. The following are two examples.
+
 #### forEach()
-```
+
+```js
 function forEach(arr, callback, start = 0) {
     if (0 <= start && start < arr.length) {
         callback(arr[start], start, arr);
@@ -46,7 +52,8 @@ forEach(['a', 'b'], (elem, i) => console.log(`${i}. ${elem}`));
 ```
 
 #### findIndex()
-```
+
+```js
 function findIndex(arr, predicate, start = 0) {
     if (0 <= start && start < arr.length) {
         if (predicate(arr[start])) {
